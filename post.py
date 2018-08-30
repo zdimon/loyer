@@ -85,7 +85,7 @@ print headers
 #https://online.zakon.kz/ValidateAuth.aspx?token=hkQ437RoT0O0tkcH3OkJlA%3D%3D&tokenItem=VVWo4iEOtUqmzXqAevUG6g%3D%3D&returnUrl=
 
 
-#location = 'https://online.zakon.kz/ValidateAuth.aspx?token=hkQ437RoT0O0tkcH3OkJlA%3D%3D&tokenItem=VVWo4iEOtUqmzXqAevUG6g%3D%3D&returnUrl='
+location = 'https://online.zakon.kz/ValidateAuth.aspx?token=zVrZY7DIt02n1j5ZETTw0g%3D%3D&tokenItem=jow1x74J2U%2BDgKNEWrUSXQ%3D%3D&returnUrl='
 
 
 
@@ -96,9 +96,9 @@ print headers
 #time.sleep(2)
 
 
-#r = s.get(location,headers=headers, cookies = sec_cookie, allow_redirects=False)
-#print r.status_code
-#print s.cookies.get_dict()
+r = s.get(location,headers=headers, cookies = sec_cookie, allow_redirects=False)
+print r.status_code
+print s.cookies.get_dict()
 #print r.headers
 
 
