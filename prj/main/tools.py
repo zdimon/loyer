@@ -57,6 +57,7 @@ def getSessionId():
         r = s.get(location,headers=headers, cookies = sec_cookie, allow_redirects=False)
         print r.status_code
         session_id = s.cookies.get_dict()['SessionId']  
+        print r.cookies.get_dict()
         print 'Session ID: %s' %  session_id 
         with open('session_id', 'w') as f:
             f.write(session_id)
@@ -64,6 +65,16 @@ def getSessionId():
         print 'Error request %s' % location
         #with open('session_id', 'w') as f:
         #    f.write('None')
+
+    url = 'http://online.zakon.kz/sud/'
+    r = s.get(url, headers=headers, cookies = sec_cookie, allow_redirects=False)
+    print r.cookies.get_dict()
+    try:
+        r.cookies.get_dict()['PHPSESSID']
+        with open('phpsessid', 'w') as f:
+            f.write(r.cookies.get_dict()['PHPSESSID'])
+    except:
+        print 'can not find PHPSESSID!!!'
 
 def readSessionId():
     fname = 'session_id'

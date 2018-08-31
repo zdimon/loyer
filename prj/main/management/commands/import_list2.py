@@ -26,7 +26,8 @@ class Command(BaseCommand):
         print 'Start importing'
         s = requests.Session()
         print readSessionId()
-        cookies = {"SessionId": readSessionId()}
+        cookies = {"SessionId": readSessionId(),'PHPSESSID': 'gg7lepus665dv1kn6jsp91vsp1' }
+        cookies = {'PHPSESSID': 'gg7lepus665dv1kn6jsp91vsp1' }
         url = 'http://online.zakon.kz/sud/search?sides_phrase=1&context_phrase=1&files=1&sort=date_desc'
         r = s.get(url,headers=headers,cookies=cookies)
         print r.text
