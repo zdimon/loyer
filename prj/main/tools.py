@@ -53,6 +53,7 @@ def getSessionId():
     sec_cookie['currentBase'] = 'MQ=='
     headers['Host'] = 'online.zakon.kz'
     headers['Upgrade-Insecure-Requests'] = '1'
+    print 'Try to go to 301 loc %s' % location
     try:
         r = s.get(location,headers=headers, cookies = sec_cookie, allow_redirects=False)
         print r.status_code
@@ -63,6 +64,7 @@ def getSessionId():
             f.write(session_id)
     except:
         print 'Error request %s' % location
+        return 1
         #with open('session_id', 'w') as f:
         #    f.write('None')
 
@@ -73,8 +75,23 @@ def getSessionId():
         r.cookies.get_dict()['PHPSESSID']
         with open('phpsessid', 'w') as f:
             f.write(r.cookies.get_dict()['PHPSESSID'])
+        sec_cookie['PHPSESSID'] = r.cookies.get_dict()['PHPSESSID']
     except:
         print 'can not find PHPSESSID!!!'
+    time.sleep(2)
+    location = r.headers['Location']
+    print 'Try to go to 301 loc %s' % location
+    try:
+        r = s.get(location,headers=headers, cookies = sec_cookie, allow_redirects=False)
+        print r.status_code
+        session_id = s.cookies.get_dict()['SessionIdv2']  
+        print r.cookies.get_dict()
+        print 'Session ID v2: %s' %  session_id 
+        with open('session_idv2', 'w') as f:
+            f.write(session_id)
+    except:
+        print 'Error request %s' % location
+        return 1
 
 def readSessionId():
     fname = 'session_id'
@@ -82,10 +99,19 @@ def readSessionId():
     f = open(fname,'r')
     session_id = f.read()
     f.close()
-    return  session_id
+    return  session_id.replace('\n', ' ')
     #else: 
     #    return 0
-        
+     
+     
+def readPHPSessionId():
+    fname = 'phpsessid'
+    #if os.path.isfile(fname):
+    f = open(fname,'r')
+    session_id = f.read()
+    f.close()
+    return  session_id.replace('\n', ' ')
+            
 
 def checkDocument(html):
     soup = BeautifulSoup(html, 'html.parser')   

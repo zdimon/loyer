@@ -14,7 +14,7 @@ class Documents(models.Model):
     is_downloaded = models.BooleanField(default=False)
 
     def __str__(self):
-        return '%s' % (self.title.encode('utf-8'))
+        return '%s' % (self.id)
 
     def clearHtml(self):
         print 'Clearing'

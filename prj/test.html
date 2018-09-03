@@ -1,345 +1,82 @@
 <!DOCTYPE html>
-<head id="head">
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="0" />
-        <title>Судебный кабинет</title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x412;&#x445;&#x43E;&#x434; &#x432; &#x441;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x44B; PARAGRAPH</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
 
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-
-        <link rel="stylesheet" href="/resources/css/normalize.css" />
-        <link rel="stylesheet" href="/resources/css/pure-min.css" />
-        <link rel="stylesheet" href="/resources/css/common.css?b=20170815" />
-        <link rel="stylesheet" href="/resources/css/icons.css" />
-        <link rel="stylesheet" href="/resources/css/modal.css" />
-        <link rel="stylesheet" href="/resources/css/print.css" />
-        <link rel="stylesheet" href="/resources/css/addon.css?b=20170815" /><link type="text/css" rel="stylesheet" href="/org.richfaces.resources/javax.faces.resource/org.richfaces.staticResource/4.5.17.Final/PackedCompressed/DEFAULT/org.richfaces.css/skinning_classes.css" /><script type="text/javascript" src="/javax.faces.resource/jsf.js.xhtml?ln=javax.faces"></script><script type="text/javascript" src="/org.richfaces.resources/javax.faces.resource/org.richfaces.staticResource/4.5.17.Final/PackedCompressed/org.richfaces/jquery.js"></script><script type="text/javascript" src="/org.richfaces.resources/javax.faces.resource/org.richfaces.staticResource/4.5.17.Final/PackedCompressed/packed/packed.js"></script><link type="text/css" rel="stylesheet" href="/org.richfaces.resources/javax.faces.resource/org.richfaces.staticResource/4.5.17.Final/PackedCompressed/DEFAULT/packed/packed.css" /></head><body id="body" class="front lang-ru" style="min-width: 0;"><script type="text/javascript" src="/javax.faces.resource/jquery.blockUI.2_66.js.xhtml?ln=javascripts"></script><script type="text/javascript" src="/javax.faces.resource/jquery.cookie.js.xhtml?ln=javascripts"></script>
-    <div id="loadingPnl" style="display: none;"><img src="/resources/img/spinner.gif" /><span style="margin-left: 10px;">Ждите. Выполняется запрос...</span>
-    </div>
-
-    <script type="text/javascript">
-        function showLoadingPnl() {
-            $.blockUI({
-                css: {
-                    cursor: 'auto',
-                    border: 'none',
-                    padding: '15px',
-                    backgroundColor: "#578BB8",
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    color: '#fff',
-                    width: '320px'
-                },
-                overlayCSS: {backgroundColor: '#fff'},
-                message: '<div><img src="/resources/img/spinner.gif"><span style="margin-left: 10px;">Ждите. Выполняется запрос...</span></div>',
-                baseZ: 100000
-            });
-        }
-
-        function hideLoadingPnl() {
-            $.unblockUI();
-        }
-    </script>
-        <style>
-            *.rf-msg-err, *.rf-msgs-err {
-                display: inline;
-                vertical-align: top;
-                background-image: none;
-            }
-        </style>
-        <div class="l-wrapper">
-            <link rel="stylesheet" href="/resources/css/inner.css" />
-            <link rel="stylesheet" href="/resources/css/forum.css" />
-            <script type="text/javascript">
-                function runScript(e) {
-                    if (e.keyCode == 13) {
-                        doSearchArticle();
-                        return false;
-                    }
-                }
-                function doSearchArticle() {
-                    var tb = document.getElementById("taldauSearch");
-                    if (tb.value.length < 3){
-                        alert("Введите не менее 3 букв");
-                    } else {
-                        searchArticle(tb.value);
-                    }
-                    return false;
-                }
-
-                $(document).ready(function() {
-                    $('.html-tree .has-children > .content').click(function(e) {
-                        e.preventDefault();
-                        var parent = $(this).parent();
-                        if ($(parent).hasClass('is-root')) {
-                            $(parent).parent().find('.is-root').not(parent).children('ul').slideUp('fast', function() { $(this).parent('li').removeClass('expand')});
-                        }
-                        $(parent).children('ul').slideToggle('fast', function() { $(parent).toggleClass('expand')});
-                    });
-                });
-            </script>
-            <div id="page">
-                <div id="main-wrapper">
-                    <div id="main" class="clearfix">
-                        
-                            
-                                
-                                    
-                                        <div class="wrapper">
-<form id="j_idt9" name="j_idt9" method="post" action="/courtActs/site/lawsuitList.xhtml" enctype="application/x-www-form-urlencoded">
-<input type="hidden" name="j_idt9" value="j_idt9" />
-
-            <div class="tab__inner-head">
-            </div>
-            <div class="tab__inner-content">
-                    <div class="list-nav clearfix"><div id="j_idt9:paginationPanel" class="content-wrapper">
-                            <script language="JavaScript">
-                                hideLoadingPnl();
-                            </script></div>
-                    </div>
-                    <br /><div id="j_idt9:lawsuitPanel">
-                        <table class="table table-hover pure-table pure-table-horizontal no-border" width="100%">
-                            <thead>
-                                <tr>
-                                    <th class="views-field views-align-center" style="min-width: 150px;">Номер и дата</th>
-                                    <th class="views-field views-align-center">Стороны процесса</th>
-                                    <th class="views-field views-align-center">Судебный орган</th>
-                                    <th class="views-field views-align-center">Результат рассмотрения</th>
-                                    <th class="views-field views-align-center">Категория дела</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(0);">
-                                        <td>
-                                            <p style="margin: 0;">5112-18-00-2/128</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            АСАНОВА АСЕЛЬ , АО "3-Энергоорталық"
-                                        </td>
-                                        <td>
-                                            Энбекшинский районный суд города Шымкента Южно-Казахстанской области
-                                        </td>
-                                        <td>
-                                            рассмотрено с вынесением приказа
-                                        </td>
-                                        <td>
-                                            О ВЗЫСКАНИИ ЗАДОЛЖЕННОСТИ НА ОСНОВАНИИ ПУБЛИЧНЫХ ДОГОВОРОВ ЗА ФАКТИЧЕСКИ ПОТРЕБЛЕННЫЕ УСЛУГИ (ЭЛЕКТРО-, ГАЗО-, ТЕПЛО-, ВОДОСНАБЖЕНИЕ И ДРУГИЕ), А ТАКЖЕ ИНЫХ ДОГОВОРОВ ЗА УСЛУГИ СОГЛАСНО УСТАНОВЛЕННЫМ ТАРИФАМ, СРОК ОПЛАТЫ ПО КОТОРЫМ НАСТУПИЛ
-                                        </td>
-                                    </tr>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(1);">
-                                        <td>
-                                            <p style="margin: 0;">7527-17-00-2/14316</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            Товарищество с ограниченной ответственностью "Artel KZ", Товарищество с ограниченной ответственностью "Современные телекоммуникационные системы"
-                                        </td>
-                                        <td>
-                                            Специализированный межрайонный экономический суд города Алматы (Гражданские дела (ч.1 ст.27 ГПК))
-                                        </td>
-                                        <td>
-                                            иск (заявление, жалоба) удовлетворен
-                                        </td>
-                                        <td>
-                                            СПОРЫ, СВЯЗАННЫЕ С ЗАКЛЮЧЕНИЕМ, ИЗМЕНЕНИЕМ, РАСТОРЖЕНИЕМ ДОГОВОРА (СДЕЛКИ) И ИСПОЛНЕНИЕМ ДОГОВОРНЫХ ОБЯЗАТЕЛЬСТВ Споры между юридическими лицами, гражданами, осуществляющими предпринимательскую деятельность
-                                        </td>
-                                    </tr>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(2);">
-                                        <td>
-                                            <p style="margin: 0;">6310-18-00-2/139</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            республиканское государственное учреждение "Управление государственных доходов по городу Усть-Каменогорск Департамента государственных доходов по Восточно-Казахстанской области Комитета государственных доходов Министерства финансов Республики Казахстан", САДВАКАСОВА ЖАНАР КАИРДЫНОВНА
-                                        </td>
-                                        <td>
-                                            Усть-Каменогорский городской суд Восточно-Казахстанской области (Гражданские дела)
-                                        </td>
-                                        <td>
-                                            рассмотрено с вынесением приказа
-                                        </td>
-                                        <td>
-                                            о взыскании с физических лиц недоимки по налогам и другим обязательным платежам в бюджет и пеням, а также задолженности по таможенным платежам, налогам и пеням 
-                                        </td>
-                                    </tr>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(3);">
-                                        <td>
-                                            <p style="margin: 0;">3522-18-00-2/14</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            МУРАТОВА АКМАРАЛ САПАРОВНА
-                                        </td>
-                                        <td>
-                                            Саранский городской суд Карагандинской области (Общая юрисдикция)
-                                        </td>
-                                        <td>
-                                            рассмотрено с вынесением приказа
-                                        </td>
-                                        <td>
-                                            О ВЗЫСКАНИИ ЗАДОЛЖЕННОСТИ НА ОСНОВАНИИ ПУБЛИЧНЫХ ДОГОВОРОВ ЗА ФАКТИЧЕСКИ ПОТРЕБЛЕННЫЕ УСЛУГИ (ЭЛЕКТРО-, ГАЗО-, ТЕПЛО-, ВОДОСНАБЖЕНИЕ И ДРУГИЕ), А ТАКЖЕ ИНЫХ ДОГОВОРОВ ЗА УСЛУГИ СОГЛАСНО УСТАНОВЛЕННЫМ ТАРИФАМ, СРОК ОПЛАТЫ ПО КОТОРЫМ НАСТУПИЛ
-                                        </td>
-                                    </tr>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(4);">
-                                        <td>
-                                            <p style="margin: 0;">3522-18-00-2/98</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            РЕСНЯНСКИЙ ВИТАЛИЙ ГЕННАДЬЕВИЧ
-                                        </td>
-                                        <td>
-                                            Саранский городской суд Карагандинской области (Общая юрисдикция)
-                                        </td>
-                                        <td>
-                                            рассмотрено с вынесением приказа
-                                        </td>
-                                        <td>
-                                            О ВЗЫСКАНИИ ЗАДОЛЖЕННОСТИ НА ОСНОВАНИИ ПУБЛИЧНЫХ ДОГОВОРОВ ЗА ФАКТИЧЕСКИ ПОТРЕБЛЕННЫЕ УСЛУГИ (ЭЛЕКТРО-, ГАЗО-, ТЕПЛО-, ВОДОСНАБЖЕНИЕ И ДРУГИЕ), А ТАКЖЕ ИНЫХ ДОГОВОРОВ ЗА УСЛУГИ СОГЛАСНО УСТАНОВЛЕННЫМ ТАРИФАМ, СРОК ОПЛАТЫ ПО КОТОРЫМ НАСТУПИЛ
-                                        </td>
-                                    </tr>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(5);">
-                                        <td>
-                                            <p style="margin: 0;">3522-18-00-2/134</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            ЖЕКСЕМБАЕВ МЕЙРАМ СЕРИКОВИЧ
-                                        </td>
-                                        <td>
-                                            Саранский городской суд Карагандинской области (Общая юрисдикция)
-                                        </td>
-                                        <td>
-                                            рассмотрено с вынесением приказа
-                                        </td>
-                                        <td>
-                                            О ВЗЫСКАНИИ ЗАДОЛЖЕННОСТИ НА ОСНОВАНИИ ПУБЛИЧНЫХ ДОГОВОРОВ ЗА ФАКТИЧЕСКИ ПОТРЕБЛЕННЫЕ УСЛУГИ (ЭЛЕКТРО-, ГАЗО-, ТЕПЛО-, ВОДОСНАБЖЕНИЕ И ДРУГИЕ), А ТАКЖЕ ИНЫХ ДОГОВОРОВ ЗА УСЛУГИ СОГЛАСНО УСТАНОВЛЕННЫМ ТАРИФАМ, СРОК ОПЛАТЫ ПО КОТОРЫМ НАСТУПИЛ
-                                        </td>
-                                    </tr>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(6);">
-                                        <td>
-                                            <p style="margin: 0;">3522-18-00-2/126</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            ЛЕВИНА СВЕТЛАНА ГЕОРГИЕВНА
-                                        </td>
-                                        <td>
-                                            Саранский городской суд Карагандинской области (Общая юрисдикция)
-                                        </td>
-                                        <td>
-                                            рассмотрено с вынесением приказа
-                                        </td>
-                                        <td>
-                                            О ВЗЫСКАНИИ ЗАДОЛЖЕННОСТИ НА ОСНОВАНИИ ПУБЛИЧНЫХ ДОГОВОРОВ ЗА ФАКТИЧЕСКИ ПОТРЕБЛЕННЫЕ УСЛУГИ (ЭЛЕКТРО-, ГАЗО-, ТЕПЛО-, ВОДОСНАБЖЕНИЕ И ДРУГИЕ), А ТАКЖЕ ИНЫХ ДОГОВОРОВ ЗА УСЛУГИ СОГЛАСНО УСТАНОВЛЕННЫМ ТАРИФАМ, СРОК ОПЛАТЫ ПО КОТОРЫМ НАСТУПИЛ
-                                        </td>
-                                    </tr>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(7);">
-                                        <td>
-                                            <p style="margin: 0;">3518-18-00-2/75</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            КАЖАУОВ ЖАНАЖЫЛ ОМИРЗАКОВИЧ, Акционерное общество "Предприятие тепловодоснабжения"
-                                        </td>
-                                        <td>
-                                            Жезказганский городской суд Карагандинской области (Общая юрисдикция)
-                                        </td>
-                                        <td>
-                                            рассмотрено с вынесением приказа
-                                        </td>
-                                        <td>
-                                            О ВЗЫСКАНИИ ЗАДОЛЖЕННОСТИ НА ОСНОВАНИИ ПУБЛИЧНЫХ ДОГОВОРОВ ЗА ФАКТИЧЕСКИ ПОТРЕБЛЕННЫЕ УСЛУГИ (ЭЛЕКТРО-, ГАЗО-, ТЕПЛО-, ВОДОСНАБЖЕНИЕ И ДРУГИЕ), А ТАКЖЕ ИНЫХ ДОГОВОРОВ ЗА УСЛУГИ СОГЛАСНО УСТАНОВЛЕННЫМ ТАРИФАМ, СРОК ОПЛАТЫ ПО КОТОРЫМ НАСТУПИЛ
-                                        </td>
-                                    </tr>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(8);">
-                                        <td>
-                                            <p style="margin: 0;">3518-18-00-2/74</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            АХМЕТОВА АЙГУЛЬ СЕРИКОВНА, Акционерное общество "Предприятие тепловодоснабжения"
-                                        </td>
-                                        <td>
-                                            Жезказганский городской суд Карагандинской области (Общая юрисдикция)
-                                        </td>
-                                        <td>
-                                            рассмотрено с вынесением приказа
-                                        </td>
-                                        <td>
-                                            О ВЗЫСКАНИИ ЗАДОЛЖЕННОСТИ НА ОСНОВАНИИ ПУБЛИЧНЫХ ДОГОВОРОВ ЗА ФАКТИЧЕСКИ ПОТРЕБЛЕННЫЕ УСЛУГИ (ЭЛЕКТРО-, ГАЗО-, ТЕПЛО-, ВОДОСНАБЖЕНИЕ И ДРУГИЕ), А ТАКЖЕ ИНЫХ ДОГОВОРОВ ЗА УСЛУГИ СОГЛАСНО УСТАНОВЛЕННЫМ ТАРИФАМ, СРОК ОПЛАТЫ ПО КОТОРЫМ НАСТУПИЛ
-                                        </td>
-                                    </tr>
-                                    <tr style="cursor: pointer;" onclick="viewSelectedLawsuit(9);">
-                                        <td>
-                                            <p style="margin: 0;">3518-18-00-2/148</p>
-                                            <p style="margin: 0;">
-                                            </p>
-                                            <p style="margin: 0;">Гражданское дело</p>
-                                        </td>
-                                        <td>
-                                            ЖУНУСОВА ГУЛНАР УРАЗБЕКОВНА, Товарищество с ограниченной ответственностью "Сәт Тазалық"
-                                        </td>
-                                        <td>
-                                            Жезказганский городской суд Карагандинской области (Общая юрисдикция)
-                                        </td>
-                                        <td>
-                                            рассмотрено с вынесением приказа
-                                        </td>
-                                        <td>
-                                            О ВЗЫСКАНИИ ЗАДОЛЖЕННОСТИ НА ОСНОВАНИИ ПУБЛИЧНЫХ ДОГОВОРОВ ЗА ФАКТИЧЕСКИ ПОТРЕБЛЕННЫЕ УСЛУГИ (ЭЛЕКТРО-, ГАЗО-, ТЕПЛО-, ВОДОСНАБЖЕНИЕ И ДРУГИЕ), А ТАКЖЕ ИНЫХ ДОГОВОРОВ ЗА УСЛУГИ СОГЛАСНО УСТАНОВЛЕННЫМ ТАРИФАМ, СРОК ОПЛАТЫ ПО КОТОРЫМ НАСТУПИЛ
-                                        </td>
-                                    </tr>
-                            </tbody>
-                        </table></div>
-            </div>
-            <div class="tab__inner-bottom">
-                <a class="button-cancel pure-button" onclick="goBack(); return false;">Назад</a><span id="j_idt9:item-couterRus">
-                        <p style="color: #273f5c; float: right;margin-right: 16px; font-weight: 700">Результат с 1 по 10 из 163492</p></span><span id="j_idt9:j_idt78" style="display: none;"><script type="text/javascript">goBack=function(){RichFaces.ajax("j_idt9:j_idt78",null,{"incId":"1"} )};</script></span>
-            </div><span class="rf-msgs errorMsg" id="j_idt9:j_idt80"></span><span id="j_idt9:j_idt81"><span style="display:none" class="rf-st-start"></span><span class="rf-st-stop"></span><script type="text/javascript">new RichFaces.ui.Status("j_idt9:j_idt81",{"onstop":function(event){hideLoadingPnl();},"onstart":function(event){showLoadingPnl();}} )</script></span><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="3239752735014967631:-5272497555983624896" autocomplete="off" />
-</form>
-<form id="j_idt82" name="j_idt82" method="post" action="/courtActs/site/lawsuitList.xhtml" enctype="application/x-www-form-urlencoded">
-<input type="hidden" name="j_idt82" value="j_idt82" />
-<span id="j_idt82:j_idt83" style="display: none;"><script type="text/javascript">viewSelectedLawsuit=function(param1){RichFaces.ajax("j_idt82:j_idt83",null,{"parameters":{"param1":param1} ,"incId":"1"} )};</script></span><span id="j_idt82:j_idt85"><span style="display:none" class="rf-st-start"></span><span class="rf-st-stop"></span><script type="text/javascript">new RichFaces.ui.Status("j_idt82:j_idt85",{"onstop":function(event){hideLoadingPnl();},"onstart":function(event){showLoadingPnl();}} )</script></span><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:1" value="3239752735014967631:-5272497555983624896" autocomplete="off" />
-</form>
-                                        </div>
-                                    
-                                
-                            
-                        
-                        
-                    </div>
-                </div>
+    
+    
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/site.min.css?v=hOxzzVdKrLuD45lQoN3btnUj-W-wOiqL7Vn84me5gec" />
+    
+</head>
+<body>
+    <div class="container">
+        
+<form class="form-signin" method="post" action="/login">
+    <img class="form-signin-logo" src="/images/logo.png" />
+        <div class="form-signin-messages">
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+&#x412;&#x432;&#x435;&#x434;&#x438;&#x442;&#x435; &#x43B;&#x43E;&#x433;&#x438;&#x43D; &#x43F;&#x430;&#x440;&#x43E;&#x43B;&#x44C; &#x434;&#x43B;&#x44F; &#x432;&#x445;&#x43E;&#x434;&#x430; &#x432; &#x441;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x443;!                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         </div>
+    <p class="form-signin-heading">Войти в:</p>
+    <div class="row">
+        <div class="col"><a class="btn btn-default left" href="/?returnApp=//online.zakon.kz/" role="button">ИС Параграф</a></div>
+        <div class="col"><a class="btn btn-default right" href="/?returnApp=https://cabinet.zakon.kz/" role="button">Личный кабинет</a></div>
+    </div>
+    <br />
 
-        <script>window.jQuery || document.write('<script src="/resources/javascript/vendor/jquery-1.11.3.min.js"><\\/script>')</script>
-        <script src="/resources/javascripts/plugins.js"></script>
-        <script src="/resources/javascripts/main.js?b=20170815"></script>
-        <script src="/resources/javascripts/vendor/bootstrap.min.js"></script><script type="text/javascript">RichFaces.jQuery(document).ready(function() {
-new RichFaces.ui.Message("j_idt9:j_idt80",{"globalOnly":true,"isMessages":true} )
-});
-</script></body>
+    <label for="Login">Логин</label>
+    <input type="text" class="form-control" placeholder="Введите Ваш логин..." required="" autofocus="" id="Login" name="Login" value="">
+    <br />
+    <label for="Password">Пароль</label>
+    <input type="password" class="form-control" placeholder="Введите Ваш пароль..." required="" id="Password" name="Password">
+    <input type="hidden" id="ReturnApp" name="ReturnApp" value="sud">
+    <input type="hidden" id="ReturnUrl" name="ReturnUrl" value="http://online.zakon.kz/sud//search?sides_phrase=1&amp;context_phrase=1&amp;files=1&amp;sort=date_desc">
+    <br />
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" data-val="true" data-val-required="The Remember field is required." id="Remember" name="Remember" value="true"> Запомнить меня?
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block prg-button" type="submit">Войти >></button>
+    <br />
+        <div style="clear:both;">
+                <a href="/register" style="float: left;">Зарегистрироваться </a>
+            <a href="/recover" style="float: right;">Забыли пароль?</a>
+        </div>
+    <br /><br />
+
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8HgSXhomU8VFhmiidbwnqT_08KsE8JuEgd-jUO_94CncRRSbP0X7DoIdEhXbj2jtxV6SmMFp_Qgkki8GUopV6mpA4lcS8SV7vvMW3jFMhfnic_ssNnxS4_FjL3qTdh78icP59XZoRgQ4sv-ceMOqWkE" /><input name="Remember" type="hidden" value="false"></form>
+
+
+    </div>
+
+    
+    
+        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="/node_modules/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/js/site.min.js?v=o3iDJMLDCqzN922hG1_J5nJgTxSFJUvHrw3e678Jqlw"></script>
+    
+
+    
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js" crossorigin="anonymous" integrity="sha384-Fnqn3nxp3506LP/7Y3j/25BlWeA3PXTyT1l78LjECcPaKCV12TsZP7yyMxOe/G/k">
+    </script>
+<script>(window.jQuery && window.jQuery.validator||document.write("\u003Cscript src=\u0022\/lib\/jquery-validation\/dist\/jquery.validate.min.js\u0022 crossorigin=\u0022anonymous\u0022 integrity=\u0022sha384-Fnqn3nxp3506LP\/7Y3j\/25BlWeA3PXTyT1l78LjECcPaKCV12TsZP7yyMxOe\/G\/k\u0022\u003E\u003C\/script\u003E"));</script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js" crossorigin="anonymous" integrity="sha384-JrXK+k53HACyavUKOsL+NkmSesD2P+73eDMrbTtTk0h4RmOF8hF8apPlkp26JlyH">
+    </script>
+<script>(window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive||document.write("\u003Cscript src=\u0022\/lib\/jquery-validation-unobtrusive\/jquery.validate.unobtrusive.min.js\u0022 crossorigin=\u0022anonymous\u0022 integrity=\u0022sha384-JrXK\u002Bk53HACyavUKOsL\u002BNkmSesD2P\u002B73eDMrbTtTk0h4RmOF8hF8apPlkp26JlyH\u0022\u003E\u003C\/script\u003E"));</script>
+
+
+</body>
+</html>
