@@ -80,6 +80,7 @@ def getSessionId():
         print 'can not find PHPSESSID!!!'
     time.sleep(2)
     location = r.headers['Location']
+    location = 'http://auth.zakon.kz//login/autologin?returnApp=sud&returnUrl=http%3A%2F%2Fonline.zakon.kz%2Fsud%2F%2F'
     print 'Try to go to 301 loc %s' % location
     try:
         r = s.get(location,headers=headers, cookies = sec_cookie, allow_redirects=False)
@@ -89,9 +90,22 @@ def getSessionId():
         print 'Session ID v2: %s' %  session_id 
         with open('session_idv2', 'w') as f:
             f.write(session_id)
-    except:
+        location = r.headers['Location']
+    except Exception, e:
         print 'Error request %s' % location
+        print str(e)
         return 1
+        
+    print 'Try to go to 302 loc %s' % location    
+    try:
+        r = s.get(location,headers=headers, cookies = sec_cookie, allow_redirects=False)
+        print r.status_code
+        print r.cookies.get_dict()
+    except Exception, e:
+        print 'Error request %s' % location
+        print str(e)
+        return 1        
+    
 
 def readSessionId():
     fname = 'session_id'
