@@ -13,7 +13,7 @@ from main.tools import headers
 from main.tools import getSessionId, readSessionId, getSessionId, readPHPSessionId
 import sys
 import os
-
+import random
 
 
 def processDoc(limit):
@@ -36,6 +36,10 @@ def processDoc(limit):
         c.save()
         d.is_downloaded = True
         d.save()
+
+        sl = random.randint(2,5)
+        print 'sleeping %s' % sl
+        time.sleep(sl)
         
        
         
