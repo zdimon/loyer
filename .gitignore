@@ -1,3 +1,4 @@
 ve
 backups
 *.pyc
+prj/prj/local.py
